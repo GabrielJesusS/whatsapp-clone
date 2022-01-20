@@ -1,11 +1,27 @@
-import { Avatar, IconButton} from "@material-ui/core";
+import { Avatar, Button, IconButton} from "@material-ui/core";
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ForumIcon from '@mui/icons-material/Forum';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from "styled-components";
+import * as EmailValidator from "email-validator"
 
 
-function Sidebar(){
+function Sidebar()
+{
+
+    
+const createChat = ()=>{
+
+    const input = prompt('Insira um e-mail de um usuário para iniciar sua conversa')
+
+    if(!input) return null;
+
+    if (EmailValidator.validate(input)){
+        //Inserir o chat na coleção de "chats" no banco de dados
+    }
+
+}
+
     return(
         <Container>
             <Header>
@@ -23,11 +39,13 @@ function Sidebar(){
                     <SearchIcon/>
                     <SearchInput placeholder="Search in chats"/>
             </Search>
+            <SidebarButton onClick={createChat}>START A NEW CHAT</SidebarButton>
         </Container>
     )
 }
 
 export default Sidebar;
+
 
 const Container = styled.div``;
 
@@ -43,6 +61,17 @@ const SearchInput = styled.input`
     border: none;
     flex: 1;
 `;
+
+const SidebarButton = styled(Button)`
+    width: 100%;
+    
+
+    &&& {
+        border-top: 1px solid whitesmoke;
+        border-bottom: 1px solid whitesmoke;
+    }
+    
+`
 
 const Header = styled.div`
     display:flex;
