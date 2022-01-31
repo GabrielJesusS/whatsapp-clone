@@ -1,13 +1,13 @@
 import { Button } from '@material-ui/core'
 import Head from "next/head"
 import styled from "styled-components"
-import {signInWithPopup} from "firebase/auth"
+import firebase from "firebase"
 import {auth, provider} from "../firebase"
 
 function Login(){
 
     const signIn = ()=>{
-        signInWithPopup(auth,provider).catch(alert)
+        auth.signInWithPopup(provider).catch(alert)
 
 
 

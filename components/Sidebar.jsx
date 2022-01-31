@@ -4,28 +4,54 @@ import ForumIcon from '@mui/icons-material/Forum';
 import SearchIcon from '@mui/icons-material/Search';
 import styled from "styled-components";
 import * as EmailValidator from "email-validator"
+import {auth, db} from "../firebase"
+import firebase from "firebase"
+import {useAuthState} from "react-firebase-hooks/auth"
+import {useCollection} from "react-firebase-hooks/firestore"
+import Chat from "../components/Chat"
+
+
 
 
 function Sidebar()
 {
 
-    
-const createChat = ()=>{
+    const [user] = useAuthState(auth);
+    const userChatRef = db.collection("chats").where("users", "array-contains", user.email) 
+    const [chatsSnapshot] = useCollection(userChatRef);
+
+    const createChat = ()=>{
 
     const input = prompt('Insira um e-mail de um usuário para iniciar sua conversa')
 
     if(!input) return null;
 
-    if (EmailValidator.validate(input)){
-        //Inserir o chat na coleção de "chats" no banco de dados
+    if (EmailValidator.validate(input) && !chatAlreadyExists(input) && input !== user.email){
+        //Inserir o chat na coleção de "chats" no banco de dados se caso ele não exista
+        console.log(!chatAlreadyExists(input))
+        db.collection("chats").add({
+            users: [user.email, input],
+        });
     }
 
 }
 
+    const chatAlreadyExists = (recipientEmail) =>{
+        
+        if((!!chatsSnapshot?.docs.find(
+            (chat)=>chat.data().users.find((user) => user === recipientEmail)?.length > 0
+        )) == true){
+            return true
+        }else{
+            return false
+        }
+        
+    }
+
     return(
         <Container>
             <Header>
-                <UserAvatar/>
+                <UserAvatar src={user.photoURL} onClick={()=>{auth.signOut()}}/>
                 <IconsContainer>
                     <IconButton>
                         <ForumIcon/>
@@ -40,6 +66,11 @@ const createChat = ()=>{
                     <SearchInput placeholder="Search in chats"/>
             </Search>
             <SidebarButton onClick={createChat}>START A NEW CHAT</SidebarButton>
+            {/* List of Chats */}
+            {chatsSnapshot?.docs.map((chat) =>(
+                <Chat key={chat.id} id={chat.id} users={chat.data().users}/>
+            ))}
+
         </Container>
     )
 }
@@ -47,7 +78,22 @@ const createChat = ()=>{
 export default Sidebar;
 
 
-const Container = styled.div``;
+const Container = styled.div`
+    flex: 0.45;
+    border-right:  1px solid whitesmoke;
+    height : 100vh;
+    min-width : 300px;
+    max-width: 350px;
+    overflow-y: scroll;
+    
+    ::-webkit-scrollbar{
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+`;
 
 const Search = styled.div`
     display:flex;
