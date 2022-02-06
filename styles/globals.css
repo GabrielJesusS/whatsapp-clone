@@ -13,4 +13,31 @@ a {
 
 * {
   box-sizing: border-box;
+
 }
+
+
+[data-theme="light"]{
+  --background: white;
+  --texts: black;
+  --chat1: #DCF8C6;
+  --chat2: #fff;
+  --chatBg:#E5DED8;
+  --borders: whitesmoke;
+  --iptBg: whitesmoke;
+  --icons: #707070;
+} 
+
+[data-theme="dark"]{
+  --background: #3a3a3a;
+  --texts: white;
+  --chat1: #005C4B;
+  --chat2: #202C33;
+  --chatBg:#0f1111;
+  --borders: #5c5c5c;
+  --iptBg: #6e6e6e;
+  --icons: white;
+}
+
+
+

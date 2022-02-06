@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, {ThemeProvider} from "styled-components"
 import { Avatar } from "@material-ui/core"
 import getRecipientEmail from "../utils/getRecipientEmail"
 import {useAuthState} from "react-firebase-hooks/auth"
@@ -28,15 +28,15 @@ function Chat({id, users}){
 
     return(
 
-        <Container onClick={enterChat}>
-            {recipient?(
-                <UserAvatar src={recipient?.photoURL}/>
-            ):(
-                <UserAvatar>{recipientEmail[0]}</UserAvatar>
-            )}
+            <Container onClick={enterChat}>
+                {recipient?(
+                    <UserAvatar src={recipient?.photoURL}/>
+                ):(
+                    <UserAvatar>{recipientEmail[0]}</UserAvatar>
+                )}
             
-            <p>{recipientEmail}</p>
-        </Container>
+                <p>{recipientEmail}</p>
+            </Container>
     )
 
 }
@@ -51,7 +51,7 @@ const Container = styled.div`
     word-break: break-word;
 
     :hover{
-        background-color: #e9eaeb
+        background-color: #e9eaeb1a
     }
 `;
 

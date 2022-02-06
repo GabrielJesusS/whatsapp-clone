@@ -102,10 +102,10 @@ function ChatScreen({chat, messages}) {
                 </HeaderInformation>
                 <HeaderIcons>
                 <IconButton>
-                    <AttachFileIcon />
+                    <MyAttachFileIcon />
                 </IconButton>
                 <IconButton>
-                   <MoreVertIcon /> 
+                   <MyMoreVertIcon /> 
                 </IconButton>
             </HeaderIcons>
             </Header>
@@ -116,12 +116,12 @@ function ChatScreen({chat, messages}) {
             </MessageContainer>
 
             <InputContainer>
-                <InsertEmoticonIcon />
+                <MyInsertEmoticonIcon />
                 <Input value={input} onChange={ e => setInput(e.target.value)}/>
                 <button hidden disabled={!input} type="submit" onClick={sendMessage}>
                     Send Message
                 </button>
-                <MicIcon />
+                <MyMicIcon />
             </InputContainer>
         </Container>
     )
@@ -129,6 +129,29 @@ function ChatScreen({chat, messages}) {
 }
 
 export default ChatScreen
+
+
+/* --background
+  --texts
+  --chat1
+  --chat2
+  --chatBg
+  --borders */
+
+const MyInsertEmoticonIcon = styled(InsertEmoticonIcon)`
+    color: var(--icons);
+`
+
+const MyMicIcon = styled(MicIcon)`
+    color: var(--icons);
+`
+
+const MyAttachFileIcon = styled(AttachFileIcon)`
+    color: var(--icons);
+`
+const MyMoreVertIcon = styled(MoreVertIcon)`
+    color: var(--icons);
+`
 
 const Container = styled.div`
 
@@ -140,7 +163,7 @@ const Input = styled.input`
     outline: 0;
     border: none;
     border-radius: 10px;
-    background-color: whitesmoke;
+    background-color: var(--iptBg);
     padding: 20px;
     margin-left: 15px;
     margin-right: 15px;
@@ -148,15 +171,15 @@ const Input = styled.input`
 `
 
 const Header = styled.div`
+    background-color: var(--background);
     position: sticky;
-    background-color: white;
     z-index: 100;
     top:0;
     display: flex;
     padding: 11px;
     height:80px;
     align-items: center;
-    border-bottom: 1px solid whitesmoke;
+    border-bottom: 1px solid var(--borders);
 
 `;
 
@@ -180,7 +203,7 @@ const EndOfMessage = styled.div`
 
 const MessageContainer = styled.div`
     padding: 30px;
-    background-color: #e5ded8;
+    background-color: var(--chatBg);
     min-height: 90vh;
 `;
 
@@ -195,6 +218,6 @@ const InputContainer = styled.form`
     padding: 10px;
     position: sticky;
     bottom: 0;
-    background-color: white;
+    background-color: var(--background);
     z-index: 100;
 `

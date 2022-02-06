@@ -5,6 +5,9 @@ import Login from "./login"
 import Loading from "../components/Loading"
 import { useEffect } from 'react'
 import firebase from 'firebase'
+import { lightTheme, darkTheme } from "../styles/themes"
+import {ThemeProvider} from 'next-themes'
+import { useState } from "react";
 
 
 function MyApp({ Component, pageProps }) {
@@ -27,7 +30,9 @@ function MyApp({ Component, pageProps }) {
   if (loading) return <Loading />
   if (!user) return <Login/>
 
-  return <Component {...pageProps} />
+return( <ThemeProvider>
+          <Component {...pageProps} />
+        </ThemeProvider>)
 }
 
 export default MyApp

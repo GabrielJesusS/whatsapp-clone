@@ -3,6 +3,7 @@ import styled from "styled-components"
 import {auth} from "../firebase"
 import moment from "moment"
 
+
 function Message ({user, message}){
 
     const [userLoggedIn] = useAuthState(auth)
@@ -26,6 +27,13 @@ function Message ({user, message}){
 
 export default Message;
 
+/* --background
+  --texts
+  --chat1
+  --chat2
+  --chatBg
+  --borders */
+
 const Container = styled.div`
 
 `
@@ -46,12 +54,14 @@ const MessageElement = styled.p`
 
 const Sender = styled(MessageElement)`
     margin-left: auto;
-    background-color: #dcf8c6;
+    background-color: var(--chat1);
+    color: var(--texts)
 `
 
 const Reciver = styled(MessageElement)`
-    background-color: whitesmoke;
+    background-color: var(--chat2);
     text-align: left;
+    color: var(--texts)
 `
 
 const Timestamp = styled.span`
