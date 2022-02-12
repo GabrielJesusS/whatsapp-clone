@@ -1,4 +1,4 @@
-Este projeto foi feito seguindo o projeto do youtuber [Sonny Sangha](https://www.youtube.com/watch?v=svlEVg0To_c)
+Este projeto foi feito seguindo o projeto do youtuber [Sonny Sangha](https://www.youtube.com/channel/UCqeTj_QAnNlmt7FwzNwHZnA)
 
 Basicamente o projeto é um clone do whatsapp, sendo um chat 1a1 utilizando como parametro para usuários e autenticação os e-mails
 cadastrados no google.
