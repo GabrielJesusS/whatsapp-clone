@@ -1,3 +1,17 @@
+Este projeto foi feito seguindo o projeto do youtuber [Sonny Sangha](https://www.youtube.com/watch?v=svlEVg0To_c)
+
+Basicamente o projeto é um clone do whatsapp, sendo um chat 1a1 utilizando como parametro para usuários e autenticação os e-mails
+cadastrados no google.
+
+Foi adcionado como conteúdo extra e de minha autoria a parte do tema escuro utilizando a paleta de cores do Whatsapp original.
+
+Para que o projeto funcione em sua máquina é necessario que o arquivo " **firebase.js** "que está na raiz do projeto seja editado,
+adicionando a chave de acesso ao seu banco de dados da sua conta do Firebase.
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
