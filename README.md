@@ -1,12 +1,10 @@
 Este projeto foi feito seguindo o projeto do youtuber [Sonny Sangha](https://www.youtube.com/channel/UCqeTj_QAnNlmt7FwzNwHZnA)
 
-Basicamente o projeto é um clone do whatsapp, sendo um chat 1a1 utilizando como parametro para usuários e autenticação os e-mails
-cadastrados no google.
+Basicamente o projeto é um clone do whatsapp, sendo um chat 1a1 utilizando como parâmetro para usuários e autenticação os e-mails cadastrados no google.
 
-Foi adcionado como conteúdo extra e de minha autoria a parte do tema escuro utilizando a paleta de cores do Whatsapp original.
+Foi adicionado como conteúdo extra e de minha autoria a parte do tema escuro utilizando a paleta de cores do Whatsapp original.
 
-Para que o projeto funcione em sua máquina é necessario que o arquivo " **firebase.js** "que está na raiz do projeto seja editado,
-adicionando a chave de acesso ao seu banco de dados da sua conta do Firebase.
+Para que o projeto funcione em sua máquina é necessário que o arquivo " firebase.js "que está na raiz do projeto seja editado, adicionando a chave de acesso ao seu banco de dados da sua conta do Firebase.
 
 
 
